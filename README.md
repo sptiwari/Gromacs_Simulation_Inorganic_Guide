@@ -1,1 +1,1 @@
-# Gromacs_Simulation_Inorganic_Guide
+# Gromacs_Simulation_NonBio_Guide
