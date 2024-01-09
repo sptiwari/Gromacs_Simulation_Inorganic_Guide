@@ -1,0 +1,7 @@
+/nfs/home/5/tiwaris/.bash_profile: line 47: bind: warning: line editing not enabled
+[?1034h/nfs/home/5/tiwaris/.bash_profile: line 48: bind: warning: line editing not enabled
+stty: standard input: Inappropriate ioctl for device
+/nfs/home/5/tiwaris/.bash_profile: line 50: bind: warning: line editing not enabled
+/var/spool/slurmd/job1887031/slurm_script: line 17: setenv: command not found
+/nfs/apps/Gaussian/64/g16/bsd/g16.login: line 30: syntax error near unexpected token `setenv'
+/nfs/apps/Gaussian/64/g16/bsd/g16.login: line 30: `  if (! (-d $PGI)) setenv PGI /opt/pgi'
