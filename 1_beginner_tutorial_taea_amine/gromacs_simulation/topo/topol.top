@@ -1,0 +1,9 @@
+#include "MOL_GMX.itp"
+#include "spce.itp"
+
+[ system ]
+Amine water
+
+[ molecules ]
+MOL  50
+SOL  1000

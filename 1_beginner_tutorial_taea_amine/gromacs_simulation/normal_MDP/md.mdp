@@ -1,0 +1,59 @@
+integrator  = md
+dt          = 0.0005
+tinit       = 0
+nsteps      = 50000000  
+;nstcomm     = 10
+pbc    	    = xyz
+
+
+; Bond parameters
+constraint_algorithm    = lincs
+;lincs_order 		 = 9
+;constraints            = all-bonds
+  
+nstxout                  = 5000
+nstvout                  = 5000
+nstfout                  = 0
+nstlog                   = 5000
+nstenergy                = 5000
+
+nstlist                  = 10
+ns_type                  = grid
+
+cutoff-scheme            = verlet
+coulombtype              = PME_switch
+
+rcoulomb_switch          = 1.245
+rcoulomb                 = 1.3
+vdwtype                  = Cut-off
+vdw_modifier             = Potential-shift
+rvdw                     = 1.3
+
+DispCorr    = EnerPres          ; account for cut-off vdW scheme
+
+; PME electrostatics parameters
+
+fourierspacing  = 0.12
+fourier_nx      = 0
+fourier_ny      = 0
+fourier_nz      = 0
+pme_order       = 6
+ewald_rtol      = 1e-6
+optimize_fft    = yes
+
+tcoupl      = nose-hoover             
+tc-grps     = System 
+tau_t       = 6           ; time constant, in ps
+ref_t       = 298.15      ; reference temperature, one for each group, in K
+
+pcoupl              = Parrinello-Rahman     ; Pressure coupling on in NPT, also weak coupling
+pcoupltype          = isotropic     ; uniform scaling of x-y-z box vectors
+tau_p               = 4.0           ; time constant, in ps
+ref_p               = 1.0           ; reference pressure (in bar)
+compressibility     = 4.5e-5        ; isothermal compressibility, bar^-1
+
+;gen_vel             = yes
+;gen_seed	    = -1
+;gen_temp	    = 298.15
+continuation            = yes       ; continuing from NPT 
+
