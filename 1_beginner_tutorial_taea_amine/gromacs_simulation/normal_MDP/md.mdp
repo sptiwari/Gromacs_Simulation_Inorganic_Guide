@@ -1,7 +1,7 @@
 integrator  = md
 dt          = 0.0005
 tinit       = 0
-nsteps      = 50000000  
+nsteps      = 5000000
 ;nstcomm     = 10
 pbc    	    = xyz
 
