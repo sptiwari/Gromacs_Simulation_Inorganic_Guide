@@ -43,12 +43,12 @@ optimize_fft    = yes
 
 tcoupl      = nose-hoover             
 tc-grps     = System 
-tau_t       = 6           ; time constant, in ps
+tau_t       = 4           ; time constant, in ps
 ref_t       = 298.15      ; reference temperature, one for each group, in K
 
 pcoupl              = Parrinello-Rahman     ; Pressure coupling on in NPT, also weak coupling
 pcoupltype          = isotropic     ; uniform scaling of x-y-z box vectors
-tau_p               = 4.0           ; time constant, in ps
+tau_p               = 8.0           ; time constant, in ps
 ref_p               = 1.0           ; reference pressure (in bar)
 compressibility     = 4.5e-5        ; isothermal compressibility, bar^-1
 
