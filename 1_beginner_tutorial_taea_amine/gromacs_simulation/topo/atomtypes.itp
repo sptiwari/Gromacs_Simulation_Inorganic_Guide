@@ -1,0 +1,26 @@
+; amn_GMX.top created by acpype (v: 2023.10.27) on Sat Jan 13 03:22:44 2024
+
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               2               yes             0.5     0.8333333333
+
+[ atomtypes ]
+;name   bond_type     mass     charge   ptype   sigma         epsilon       Amb
+ n3       n3          0.00000  0.00000   A     3.36510e-01   3.58987e-01 ; 1.89  0.0858
+ c3       c3          0.00000  0.00000   A     3.39771e-01   4.51035e-01 ; 1.91  0.1078
+ hn       hn          0.00000  0.00000   A     1.10650e-01   4.18400e-02 ; 0.62  0.0100
+ h1       h1          0.00000  0.00000   A     2.42200e-01   8.70272e-02 ; 1.36  0.0208
+
+;SPC/E atomtypes
+ Ow       8           15.99940  -0.8476  A     0.3165492      0.650299455
+ Hw       1           1.00800   0.4238   A     0              0
+;CO2 from Wei Shi paper (A version of TraPPE)
+;Wei2008 https://pubs.acs.org/doi/10.1021/jp077223x double checked
+ CCO2     6           12.0107   0.70     A     0.28000002359  0.22449252
+ OCO2     8           15.99940  -0.350   A     0.30499997796  0.656841976
+;Please double check the N parameters for N2:
+ N        7           14.0      0        A     0.331          0.299
+
+;[ nonbond_params ]
+; i     j   func    sigma(c6)   eps(c12) ;Optionally add cross nonbond_params, if needed.
+

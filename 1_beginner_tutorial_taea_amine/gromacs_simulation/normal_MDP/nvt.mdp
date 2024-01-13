@@ -1,7 +1,7 @@
 ; Run parameters
 integrator  = md
 ;define	    = -DFLEXIBLE
-dt          = 0.001
+dt          = 0.0005
 tinit       = 0
 nsteps      = 300000
 ;nstcomm     = 10 ; steps. freq for center of mass motion removal. Equal to nstcalcenergy 100

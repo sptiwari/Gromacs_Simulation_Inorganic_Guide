@@ -1,9 +1,14 @@
-#include "MOL_GMX.itp"
+#include "atomtypes.itp"
+#include "amn_GMX.itp"
+#include "co2.itp"
+#include "n2.itp"
 #include "spce.itp"
 
 [ system ]
-Amine water
+Amine co2 n2 water
 
 [ molecules ]
-MOL  50
+amn  50
+CO2  100
+N2_molecule 100
 SOL  1000

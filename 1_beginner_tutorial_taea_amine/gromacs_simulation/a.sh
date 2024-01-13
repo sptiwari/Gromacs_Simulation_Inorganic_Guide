@@ -2,8 +2,8 @@
 
 #SBATCH --qos=normal
 
-#SBATCH --partition=general
-##SBATCH --partition=bigmem
+##SBATCH --partition=general
+#SBATCH --partition=bigmem
 ##SBATCH --partition=gpu
 #SBATCH --nodes=1
 
@@ -33,17 +33,18 @@ cd $sim_folder
 rm *
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/em_steep.mdp -c $topo/solv.gro -maxwarn 3 -p $topo/topol.top -o min1.tpr
-exit
 mpirun gmx_mpi mdrun     -deffnm min1
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/em_l-bfgs.mdp -c min1.gro -maxwarn 3 -p $topo/topol.top -o min2.tpr
 gmx_mpi mdrun     -deffnm min2
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/nvt.mdp -c min2.gro -maxwarn 3 -p $topo/topol.top -o nvt.tpr
-mpirun gmx_mpi mdrun     -deffnm nvt
+
+mpirun -np 1 gmx_mpi mdrun     -deffnm nvt
+exit
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/npt.mdp -c nvt.gro -maxwarn 3 -p $topo/topol.top -o npt.tpr -t nvt.cpt
-mpirun gmx_mpi mdrun     -deffnm npt
+mpirun -np 4 gmx_mpi mdrun     -deffnm npt
 
 cd ..
 
@@ -54,5 +55,5 @@ cd $production_dir
 rm *
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/md.mdp -c $sim/equil_sim/npt.gro -maxwarn 3 -p $topo/topol.top -o md.tpr
-mpirun gmx_mpi mdrun    -deffnm md
+mpirun -np 4 gmx_mpi mdrun    -deffnm md
 

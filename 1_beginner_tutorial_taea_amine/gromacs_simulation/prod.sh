@@ -39,10 +39,10 @@ gmx_mpi grompp    -v -f $sim/normal_MDP/em_l-bfgs.mdp -c min1.gro -maxwarn 3 -p 
 gmx_mpi mdrun     -deffnm min2
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/nvt.mdp -c min2.gro -maxwarn 3 -p $topo/topol.top -o nvt.tpr
-mpirun -np 4 gmx_mpi mdrun     -deffnm nvt
+mpirun -np 16 gmx_mpi mdrun     -deffnm nvt
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/npt.mdp -c nvt.gro -maxwarn 3 -p $topo/topol.top -o npt.tpr -t nvt.cpt
-mpirun -np 4 gmx_mpi mdrun     -deffnm npt
+mpirun -np 16 gmx_mpi mdrun     -deffnm npt
 
 cd ..
 
@@ -53,5 +53,5 @@ cd $production_dir
 rm *
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/md.mdp -c $sim/equil_sim/npt.gro -maxwarn 3 -p $topo/topol.top -o md.tpr
-mpirun -np 4 gmx_mpi mdrun    -deffnm md
+mpirun -np 16 gmx_mpi mdrun    -deffnm md
 
