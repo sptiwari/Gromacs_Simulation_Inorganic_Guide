@@ -22,7 +22,7 @@ conda activate AmberTools23
 
 tleap -f leaprc.gaff2
 
-a=loadmol2 b.mol2
+a=loadmol2 new_file.mol2
 loadamberparams final.frcmod
 #saveMol2 a bbb.mol2 1
 saveamberparm a top.prmtop crd.inpcrd

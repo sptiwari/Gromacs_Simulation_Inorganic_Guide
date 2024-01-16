@@ -21,3 +21,5 @@ echo ';SPC/E atomtypes
 ;[ nonbond_params ]
 ; i     j   func    sigma(c6)   eps(c12) ;Optionally add cross nonbond_params, if needed.
 ' >> atomtypes.itp
+
+echo "Created amn_GMX.itp and atomtypes.itp"
