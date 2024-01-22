@@ -7,13 +7,13 @@ antechamber -i lcom.log -o a.mol2 -fi gout -fo mol2 -s 2 -c resp -at gaff2
 cp a.mol2 bonded_a.mol2
 
 #I changed the residue name from default MOL to AMN:
-antechamber -i bonded_a.mol2 -fi mol2 -o b.mol2 -fo mol2 -s 2 -rn AMN
+antechamber -i bonded_a.mol2 -fi mol2 -o b.mol2 -fo mol2 -s 2 -rn AMN -at gaff2
 
 cp ~/old_programs/atom_equiv_mol2_v2.py .
 python atom_equiv_mol2_v2.py b.mol2 #Gives new_file.mol2
 
 
-parmchk2 -i new_file.mol2 -f mol2 -o c.frcmod
+parmchk2 -i new_file.mol2 -f mol2 -o c.frcmod -s 2 -rn AMN
 cp c.frcmod final.frcmod
 
 echo '
