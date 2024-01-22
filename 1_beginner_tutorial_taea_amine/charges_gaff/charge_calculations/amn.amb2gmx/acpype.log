@@ -23,7 +23,7 @@ DEBUG: getDihedrals done
 DEBUG: writing GRO file
 DEBUG: Box size estimated
 DEBUG: writing POSRE file
-DEBUG: atomTypes 4
+DEBUG: atomTypes 5
 DEBUG: GMX atomtypes done
 DEBUG: atoms 28
 DEBUG: GMX atoms done

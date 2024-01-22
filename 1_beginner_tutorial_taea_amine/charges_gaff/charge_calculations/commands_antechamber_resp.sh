@@ -13,7 +13,7 @@ cp ~/old_programs/atom_equiv_mol2_v2.py .
 python atom_equiv_mol2_v2.py b.mol2 #Gives new_file.mol2
 
 
-parmchk2 -i new_file.mol2 -f mol2 -o c.frcmod -s 2 -rn AMN
+parmchk2 -i new_file.mol2 -f mol2 -o c.frcmod -s 2 -rn AMN # -s 2 for gaff2
 cp c.frcmod final.frcmod
 
 echo '

@@ -370,6 +370,7 @@ def find_atomic_number(j, atomDetails_array):
     elif atom_type == 'n2': an = 7
     elif atom_type == 'n4': an = 7
     elif atom_type == 'n3': an = 7
+    elif atom_type == 'n8': an = 7
     elif atom_type == 'ne': an = 7
     elif atom_type == 'O': an = 8
     elif atom_type == 'o': an = 8
