@@ -35,10 +35,10 @@ rm *
 gmx_mpi grompp    -v -f $sim/normal_MDP/em_steep.mdp -c $topo/solv.gro -maxwarn 3 -p $topo/topol.top -o min1.tpr
 mpirun gmx_mpi mdrun     -deffnm min1
 
-gmx_mpi grompp    -v -f $sim/normal_MDP/em_l-bfgs.mdp -c min1.gro -maxwarn 3 -p $topo/topol.top -o min2.tpr
-gmx_mpi mdrun     -deffnm min2
+#gmx_mpi grompp    -v -f $sim/normal_MDP/em_l-bfgs.mdp -c min1.gro -maxwarn 3 -p $topo/topol.top -o min2.tpr
+#gmx_mpi mdrun     -deffnm min2
 
-gmx_mpi grompp    -v -f $sim/normal_MDP/nvt.mdp -c min2.gro -maxwarn 3 -p $topo/topol.top -o nvt.tpr
+gmx_mpi grompp    -v -f $sim/normal_MDP/nvt.mdp -c min1.gro -maxwarn 3 -p $topo/topol.top -o nvt.tpr
 mpirun -np 16 gmx_mpi mdrun     -deffnm nvt
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/npt.mdp -c nvt.gro -maxwarn 3 -p $topo/topol.top -o npt.tpr -t nvt.cpt

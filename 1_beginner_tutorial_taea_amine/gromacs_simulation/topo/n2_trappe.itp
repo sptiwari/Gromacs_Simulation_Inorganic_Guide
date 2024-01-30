@@ -1,0 +1,26 @@
+; copied from this paper: https://www.rsc.org/suppdata/d0/ta/d0ta03419c/d0ta03419c1.pdf. Modified some names for more clarity.
+; verified with data on http://trappe.oit.umn.edu/
+
+[ moleculetype ]
+; molname	nrexcl
+N2_trappe    	2
+
+[ atoms ]
+;   nr  type  resi  res  atom  cgnr     charge      mass       
+    1   N_n2   1    N2   N1     1       -0.482      14.0            
+    2   N_n2   1    N2   N2     1       -0.482      14.0            
+    3   N_mid  1    N2   N3     1        0.964       0.0
+
+[ constraints ]
+;  ai    aj funct  b0  
+    1     2     1  0.110
+
+[ exclusions ]
+1	2	3
+2	1	3
+3	1	2
+
+[ virtual_sites2 ]
+; ai aj ak funct a
+  3  1  2   1    0.
+

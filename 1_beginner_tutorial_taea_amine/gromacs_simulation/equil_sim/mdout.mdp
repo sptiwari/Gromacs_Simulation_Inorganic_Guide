@@ -2,7 +2,7 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: tiwaris (10032)
 ;	On host: login05.super
-;	At date: Mon Jan 22 12:53:33 2024
+;	At date: Tue Jan 30 12:24:29 2024
 ;
 ;	Created by:
 ;	              :-) GROMACS - gmx grompp, 2021.4-plumed-2.8.0 (-:
@@ -11,21 +11,21 @@
 ;	Data prefix:  /nfs/apps/Gromacs/2021.4/gnu/8.2.0/openmpi/3.1.6/plumed/2.8.0
 ;	Working dir:  /.nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/equil_sim
 ;	Command line:
-;	  gmx_mpi grompp -v -f /nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/normal_MDP/em_steep.mdp -c /nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/topo/solv.gro -maxwarn 3 -p /nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/topo/topol.top -o min1.tpr
+;	  gmx_mpi grompp -v -f /nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/normal_MDP/nvt.mdp -c min1.gro -maxwarn 3 -p /nfs/home/5/tiwaris/Gromacs_Simulation_Non_Bio_Guide/1_beginner_tutorial_taea_amine/gromacs_simulation/topo/topol.top -o nvt.tpr
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
 ; e.g.: -I/home/joe/doe -I/home/mary/roe
 include                  = 
 ; e.g.: -DPOSRES -DFLEXIBLE (note these variable names are case sensitive)
-define                   = -DFLEXIBLE
+define                   = 
 
 ; RUN CONTROL PARAMETERS
-integrator               = steep
+integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
-dt                       = 0.001
-nsteps                   = 5000
+dt                       = 0.0005
+nsteps                   = 300000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -46,8 +46,8 @@ ld-seed                  = -1
 
 ; ENERGY MINIMIZATION OPTIONS
 ; Force tolerance and initial step-size
-emtol                    = 100
-emstep                   = 0.002
+emtol                    = 10
+emstep                   = 0.01
 ; Max number of iterations in relax-shells
 niter                    = 20
 ; Step size (ps^2) for minimization of flexible constraints
@@ -61,13 +61,13 @@ rtpi                     = 0.05
 
 ; OUTPUT CONTROL OPTIONS
 ; Output frequency for coords (x), velocities (v) and forces (f)
-nstxout                  = 50
-nstvout                  = 0
+nstxout                  = 500
+nstvout                  = 5000
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 1
+nstlog                   = 500
 nstcalcenergy            = 100
-nstenergy                = 1
+nstenergy                = 50000
 ; Output frequency and precision for .xtc file
 nstxout-compressed       = 0
 compressed-x-precision   = 1000
@@ -117,37 +117,37 @@ energygrp-table          =
 ; Spacing for the PME/PPPM FFT grid
 fourierspacing           = 0.12
 ; FFT grid size, when a value is 0 fourierspacing will be used
-fourier-nx               = 0
-fourier-ny               = 0
-fourier-nz               = 0
+fourier_nx               = 0
+fourier_ny               = 0
+fourier_nz               = 0
 ; EWALD/PME/PPPM parameters
 pme_order                = 6
-ewald_rtol               = 1e-05
+ewald_rtol               = 1e-5
 ewald-rtol-lj            = 0.001
 lj-pme-comb-rule         = Geometric
 ewald-geometry           = 3d
-epsilon_surface          = 0
+epsilon-surface          = 0
 implicit-solvent         = no
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
-tcoupl                   = no
+tcoupl                   = v-rescale
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc-grps                  = 
+tc-grps                  = System
 ; Time constant (ps) and reference temperature (K)
-tau-t                    = 
-ref-t                    = 
+tau_t                    = 0.5
+ref_t                    = 798.15
 ; pressure coupling     
-pcoupl                   = no
-pcoupltype               = Isotropic
+pcoupl                   = No
+pcoupltype               = isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
-tau-p                    = 1
-compressibility          = 
-ref-p                    = 
+tau_p                    = 1.0
+compressibility          = 4.5e-5
+ref_p                    = 1.0
 ; Scaling of reference coordinates, No, All or COM
 refcoord-scaling         = No
 
@@ -167,14 +167,14 @@ annealing-time           =
 annealing-temp           = 
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
-gen_vel                  = no
+gen_vel                  = yes
 gen-temp                 = 300
 gen-seed                 = -1
 
 ; OPTIONS FOR BONDS    
 constraints              = none
 ; Type of constraint algorithm
-constraint-algorithm     = Lincs
+constraint_algorithm     = lincs
 ; Do not constrain the start configuration
 continuation             = no
 ; Use successive overrelaxation to reduce the number of shake iterations

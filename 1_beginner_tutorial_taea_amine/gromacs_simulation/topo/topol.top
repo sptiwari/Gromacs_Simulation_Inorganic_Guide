@@ -1,7 +1,8 @@
 #include "atomtypes.itp"
 #include "amn_GMX.itp"
 #include "co2.itp"
-#include "n2.itp"
+;#include "n2.itp"
+#include "n2_trappe.itp"
 #include "spce.itp"
 
 [ system ]
@@ -10,5 +11,5 @@ Amine co2 n2 water
 [ molecules ]
 amn  50
 CO2  100
-N2_molecule 100
+N2_trappe 100
 SOL  1000

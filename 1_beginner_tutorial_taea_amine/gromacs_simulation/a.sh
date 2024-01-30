@@ -33,6 +33,7 @@ cd $sim_folder
 rm *
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/em_steep.mdp -c $topo/solv.gro -maxwarn 3 -p $topo/topol.top -o min1.tpr
+exit
 mpirun gmx_mpi mdrun     -deffnm min1
 
 gmx_mpi grompp    -v -f $sim/normal_MDP/em_l-bfgs.mdp -c min1.gro -maxwarn 3 -p $topo/topol.top -o min2.tpr
