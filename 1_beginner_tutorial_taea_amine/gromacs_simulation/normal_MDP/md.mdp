@@ -23,11 +23,11 @@ ns_type                  = grid
 cutoff-scheme            = verlet
 coulombtype              = PME_switch
 
-rcoulomb_switch          = 1.245
-rcoulomb                 = 1.3
+rcoulomb_switch          = 1.345
+rcoulomb                 = 1.4
 vdwtype                  = Cut-off
 vdw_modifier             = Potential-shift
-rvdw                     = 1.3
+rvdw                     = 1.4
 
 DispCorr    = EnerPres          ; account for cut-off vdW scheme
 
