@@ -1,0 +1,62 @@
+; Run parameters
+integrator  = md
+;define	    = -DFLEXIBLE
+dt          = 0.0005
+tinit       = 0
+nsteps      = 300000
+;nstcomm     = 10 ; steps. freq for center of mass motion removal. Equal to nstcalcenergy 100
+pbc    	    = xyz
+
+; Bond parameters
+constraint_algorithm    = lincs
+;constraints             = all-bonds
+;lincs-warnangle = 170
+
+;table-extension = 2
+
+nstxout                  = 500
+nstvout                  = 5000
+nstfout                  = 0
+nstlog                   = 500
+nstenergy                = 50000
+nstxtcout                = 0
+xtc-precision            = 1000
+
+nstlist    		 = 10
+ns_type     		 = grid 
+
+cutoff-scheme            = verlet
+coulombtype              = PME_switch
+rcoulomb_switch          = 1.045
+rcoulomb                 = 1.1
+vdwtype                  = Cut-off
+vdw_modifier             = Potential-shift
+rvdw                     = 1.1
+              
+
+; Dispersion correction
+DispCorr    = EnerPres          ; account for cut-off vdW scheme
+
+; PME electrostatics parameters
+
+fourierspacing  = 0.12
+fourier_nx      = 0
+fourier_ny      = 0
+fourier_nz      = 0
+pme_order       = 6
+ewald_rtol      = 1e-5
+
+tcoupl      = v-rescale
+tc-grps     = System ; two coupling groups - more accurate
+tau_t       = 0.5   ;    0.1         ; time constant, in ps
+ref_t       = 798.15  ;   310         ; reference temperature, one for each group, in K
+; Pressure coupling is on
+pcoupl              = No     ; Pressure coupling on in NPT, also weak coupling
+pcoupltype          = isotropic     ; uniform scaling of x-y-z box vectors
+tau_p               = 1.0           ; time constant, in ps
+ref_p               = 1.0           ; reference pressure (in bar)
+compressibility     = 4.5e-5        ; isothermal compressibility, bar^-1
+
+gen_vel                  = yes
+continuation            =  no
+

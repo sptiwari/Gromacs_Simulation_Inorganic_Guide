@@ -1,0 +1,16 @@
+#include "atomtypes.itp"
+#include "MOL_GMX.itp"
+#include "taea_GMX.itp"
+#include "co2.itp"
+;#include "n2.itp"
+;#include "n2_trappe.itp"
+#include "spce.itp"
+
+[ system ]
+nmer amine co2 water
+
+[ molecules ]
+MOL  10
+TAE  50
+CO2  100
+SOL  100
