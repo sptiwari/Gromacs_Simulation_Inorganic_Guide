@@ -4,6 +4,6 @@ This tutorial focuses on creating force field parameters for TAEA amine, followe
 
 ### Tutorial 2: Molecular Dynamics Simulations of PIM-1-AO Polymer Using Gromacs
 
-This tutorial focuses on setting up polymer simualations.
+This tutorial focuses on setting up polymer simulations.
 
 Details for both the tutorials are provided in the README files located in respective folders.
