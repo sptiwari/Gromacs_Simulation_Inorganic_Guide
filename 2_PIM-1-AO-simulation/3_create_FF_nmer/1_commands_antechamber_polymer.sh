@@ -13,7 +13,6 @@ cp nmer.mol2 bonded_a.mol2
 
 antechamber -i bonded_a.mol2 -fi mol2 -o b.mol2 -fo mol2 -s 2 -rn MOL -at gaff2
 
-cp ~/old/atom_equiv_mol2_v2.py .
 python atom_equiv_mol2_v2.py b.mol2 #Gives new_file.mol2
 
 parmchk2 -i new_file.mol2 -f mol2 -o c.frcmod -s 2 -rn MOL # -s 2 for gaff2

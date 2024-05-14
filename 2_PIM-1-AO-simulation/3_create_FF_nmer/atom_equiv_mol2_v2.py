@@ -5,6 +5,10 @@ revised on 4/3/20 for python3
 @author: stiwari
 
 Read mol2 file, find equivalent atoms, average their charges, and write a new mol2 file.
+
+This code is an implementation of the following paper:
+Wang, Junmei, et al. "Automatic atom type and bond type perception in molecular mechanical calculations." Journal of molecular graphics and modelling 25.2 (2006): 247-260.
+
 """
 #from __future__ import print_function
 import math
