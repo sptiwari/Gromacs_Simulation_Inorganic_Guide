@@ -51,7 +51,7 @@ optimize_fft    = yes
 tcoupl      = Berendsen             ; Weak coupling for initial equilibration 
 tc-grps     = System ; two coupling groups - more accurate
 tau_t       = 0.5   ;    0.1         ; time constant, in ps
-ref_t       = 300  ;   310         ; reference temperature, one for each group, in K
+ref_t       = 298.15  ;   310         ; reference temperature, one for each group, in K
 ; Pressure coupling is on
 pcoupl              = Parrinello-Rahman     ; Pressure coupling on in NPT, also weak coupling
 pcoupltype          = isotropic     ; uniform scaling of x-y-z box vectors
